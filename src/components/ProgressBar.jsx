@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Fraction from "./Fraction";
 import Legend from "./Legend";
+import Line from "./Line";
 
 function ProgressBar() {
     const [sold, setSold] = useState([
@@ -10,8 +11,8 @@ function ProgressBar() {
         { name: "Free float", color: "#9EA0B5", value: 323 },
     ]);
 
-    const width = 100; // in %%%
-    const height = 80; // in %%%
+    const width = 70; // in %
+    const height = 20; // in px
 
     let sum = 0;
     sold.forEach((el) => {
@@ -19,39 +20,49 @@ function ProgressBar() {
     });
 
     return (
-        <div className="container">
-            <div
-                className="progress-bar"
-                style={{
-                    width: `${width}%`,
-                    // height: `${height}%`
-                }}
-            >
-                {sold.map((el) => {
-                    return (
-                        <Fraction
-                            color={el.color}
-                            width={(el.value / sum) * 100}
-                            // height={height}
-                            value={el.value}
-                        />
-                    );
-                })}
-            </div>
-            <div className="progress-legend">
-                {sold.map((el) => {
-                    return (
-                        <Legend
-                            color={el.color}
-                            name={el.name}
-                            value={el.value}
-                            percent={((el.value / sum) * 100).toFixed(1)}
-                        />
-                    );
-                })}
-            </div>
+        <div>
+            {sum !== 0 ? (
+                <div
+                    className="container"
+                    style={{
+                        width: `${width}%`,
+                        // height: `${height}%`
+                    }}
+                >
+                    <div className="progress-bar">
+                        {sold.map((el, index) => {
+                            return (
+                                <Fraction
+                                    key={index}
+                                    color={el.color}
+                                    width={(el.value / sum) * 100}
+                                    height={height}
+                                    value={el.value}
+                                />
+                            );
+                        })}
+                    </div>
+                    <div className="progress-legend">
+                        {sold.map((el, index) => {
+                            return (
+                                <Legend
+                                    key={index}
+                                    color={el.color}
+                                    name={el.name}
+                                    value={el.value}
+                                    percent={((el.value / sum) * 100).toFixed(1)}
+                                />
+                            );
+                        })}
+                    </div>
+                </div>
+            ) : (
+                <div></div>
+            )}
         </div>
     );
 }
 
 export default ProgressBar;
+
+// вывести initialStateв reducer и подтянуть оттуда

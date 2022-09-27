@@ -1,15 +1,15 @@
 import React from "react";
+import Line from "./Line";
 
 function Fraction(props) {
     return (
         <div
             style={{
-                backgroundColor: props.color,
                 width: `${props.width}%`,
-                height: `${props.height}%`,
+                height: `${props.height}px`,
             }}
         >
-            {props.value}
+            <Line width={props.width} color={props.color} />
         </div>
     );
 }

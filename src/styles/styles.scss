@@ -5,7 +5,7 @@ body,
 
 .progress-bar {
     display: flex;
-    border: solid black 2px;
+    margin-bottom: 10px;
 
     &__one {
     }
@@ -24,19 +24,30 @@ body,
 
 .legend {
     display: flex;
-
+    position: relative;
+    font-size: 20px;
     &__color {
         border-radius: 50%;
-        height: auto;
+        height: 20px;
         width: 20px;
     }
 
-    &__name {
+    &__element {
+        display: flex;
+        align-items: flex-end;
+        margin-right: 10px;
     }
+}
 
-    &__value {
-    }
+.block-line {
+    display: flex;
+    justify-content: flex-end;
 
-    &__percent {
+    &__line {
+        margin-right: 2px;
+        width: 8px;
+        height: 20px;
+
+        border-radius: 25%;
     }
 }
