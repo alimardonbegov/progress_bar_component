@@ -1,0 +1,42 @@
+body,
+.App {
+    height: 100vh;
+}
+
+.progress-bar {
+    display: flex;
+    border: solid black 2px;
+
+    &__one {
+    }
+
+    &__two {
+    }
+
+    &__three {
+    }
+}
+
+.progress-legend {
+    display: flex;
+    justify-content: space-between;
+}
+
+.legend {
+    display: flex;
+
+    &__color {
+        border-radius: 50%;
+        height: auto;
+        width: 20px;
+    }
+
+    &__name {
+    }
+
+    &__value {
+    }
+
+    &__percent {
+    }
+}
