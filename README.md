@@ -1,5 +1,3 @@
-This project was created as part of interview.
-
 You can start the project by using command line:
 
 1. npm i
