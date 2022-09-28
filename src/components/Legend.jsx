@@ -2,14 +2,26 @@ import React from "react";
 
 function Legend(props) {
     return (
-        <div className="legend">
+        <div
+            style={{
+                maxWidth: `${props.maxWidth}px`,
+                display: "flex",
+                justifyContent: "space-between",
+                fontSize: "20px",
+                marginRight: "30px",
+            }}
+        >
             <div
-                className="legend__color legend__element"
-                style={{ backgroundColor: props.color }}
+                style={{
+                    backgroundColor: props.color,
+                    borderRadius: "50%",
+                    height: "20px",
+                    width: "20px",
+                }}
             ></div>
-            <div className="legend__element">{props.name}: </div>
-            <div className="legend__element">{props.value} </div>
-            <div className="legend__element">( {props.percent} %)</div>
+            <div style={{ marginRight: "20px" }}>{props.name}:</div>
+            <div style={{ marginRight: "20px" }}>{props.value} </div>
+            <div style={{ marginRight: "20px" }}>({props.percent} %)</div>
         </div>
     );
 }

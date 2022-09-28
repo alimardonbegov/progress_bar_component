@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import App from "./App";
-import "./styles/styles.scss";
 
 const store = configureStore({
     reducer: { progress: 1 },
