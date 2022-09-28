@@ -1,32 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Legend from "./Legend";
 import Bars from "./Bars";
+import { useSelector } from "react-redux";
 
 function ProgressBar() {
-    const [sold, setSold] = useState([
-        { name: "Sold", color: "#BD1FBE", value: 677 },
-        { name: "Got free", color: "#FC64FF", value: 24 },
-        { name: "Burned", color: "#19E148", value: 202 },
-        { name: "Free float", color: "#9EA0B5", value: 323 },
-    ]);
-
-    const width = 1320; // in px
-    //  const height = 20; // in px
+    const items = useSelector((state) => state.progress.items);
+    const width = useSelector((state) => state.progress.width);
+    const heigth = useSelector((state) => state.progress.heigth);
 
     let sum = 0;
-    sold.forEach((el) => {
+    items.forEach((el) => {
         sum = sum + el.value;
     });
 
     return (
         <div>
-            {sum !== 0 ? (
-                <div style={{ width: `${width}px` }}>
+            {sum !== 0 && (
+                <div style={{ width: `${width}px`, fontFamily: "Aeroport, Arial, sans-serif" }}>
                     <div style={{ display: "flex", marginBottom: "10px" }}>
-                        {sold.map((el, index) => {
+                        {items.map((el, index) => {
                             return (
                                 <Bars
+                                    key={index}
+                                    height={heigth}
                                     width={Math.floor((el.value / sum) * width) / 10}
                                     color={el.color}
                                 />
@@ -34,10 +31,9 @@ function ProgressBar() {
                         })}
                     </div>
                     <div style={{ display: "flex" }}>
-                        {sold.map((el, index) => {
+                        {items.map((el, index) => {
                             return (
                                 <Legend
-                                    maxWidth={width}
                                     key={index}
                                     color={el.color}
                                     name={el.name}
@@ -48,8 +44,6 @@ function ProgressBar() {
                         })}
                     </div>
                 </div>
-            ) : (
-                <div></div>
             )}
         </div>
     );

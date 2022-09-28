@@ -4,9 +4,10 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import App from "./App";
+import { progressSlice } from "./redux/progressSlice";
 
 const store = configureStore({
-    reducer: { progress: 1 },
+    reducer: { progress: progressSlice.reducer },
 });
 
 const container = document.getElementById("root");

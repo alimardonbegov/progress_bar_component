@@ -1,10 +1,10 @@
 import React from "react";
 
 function Bars(props) {
-    const width = props.width;
+    const width = Math.ceil(props.width);
     const count = [];
-
-    for (let i = 1; i < width; i++) {
+    console.log(width);
+    for (let i = 1; i <= width; i++) {
         count.push(i);
     }
 
@@ -18,7 +18,7 @@ function Bars(props) {
                             backgroundColor: props.color,
                             marginRight: "2px",
                             width: "8px",
-                            height: "20px",
+                            height: `${props.height}px`,
                             borderRadius: "25%",
                         }}
                     ></div>

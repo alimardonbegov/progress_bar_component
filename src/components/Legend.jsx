@@ -1,27 +1,33 @@
 import React from "react";
 
 function Legend(props) {
+    const d5 = "5px";
+    const d10 = "10px";
+    const d20 = "20px";
+    const d60 = "60px";
+
     return (
         <div
             style={{
-                maxWidth: `${props.maxWidth}px`,
                 display: "flex",
                 justifyContent: "space-between",
-                fontSize: "20px",
-                marginRight: "30px",
+                fontSize: d20,
+                marginRight: d60,
             }}
         >
             <div
+                className="circle-color"
                 style={{
                     backgroundColor: props.color,
                     borderRadius: "50%",
-                    height: "20px",
-                    width: "20px",
+                    height: d20,
+                    width: d20,
+                    marginRight: d5,
                 }}
             ></div>
-            <div style={{ marginRight: "20px" }}>{props.name}:</div>
-            <div style={{ marginRight: "20px" }}>{props.value} </div>
-            <div style={{ marginRight: "20px" }}>({props.percent} %)</div>
+            <div style={{ marginRight: d10 }}>{props.name}:</div>
+            <div style={{ marginRight: d10 }}>{props.value} </div>
+            <div style={{ marginRight: d10 }}>({props.percent} %)</div>
         </div>
     );
 }
