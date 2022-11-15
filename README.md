@@ -1,5 +1,5 @@
 You can open the project by link:
-https://kbs40v.csb.app/
+https://v5jmdv-3000.preview.csb.app/
 
 Or start the project locally by using command line:
 
@@ -9,4 +9,3 @@ Or start the project locally by using command line:
 \*Updating code is on the way:
 
 1. make adapt version
-2. show\hide appropriate bars and their legend depende on value (zero\ non-zero) of items
