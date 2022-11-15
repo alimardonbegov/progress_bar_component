@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Legend from "./Legend";
 import Bars from "./Bars";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Menu from "./Menu";
+import { setTotal } from "../redux/progressSlice";
 
 function ProgressBar() {
+    const dispatch = useDispatch();
     const items = useSelector((state) => state.progress.items);
+    const totalItems = useSelector((state) => state.progress.totalItems);
     const width = useSelector((state) => state.progress.width);
     const heigth = useSelector((state) => state.progress.heigth);
 
-    let sum = 0;
-    items.forEach((el) => {
-        sum = sum + el.value;
-    });
+    useEffect(() => {
+        let sum = Number();
+        items.forEach((el) => {
+            sum = sum + Number(el.value);
+        });
+        dispatch(setTotal(sum));
+    }, [items]);
 
     return (
-        <div>
-            {sum !== 0 && (
+        <>
+            <Menu />
+            {totalItems !== 0 && (
                 <div style={{ width: `${width}px`, fontFamily: "Aeroport, Arial, sans-serif" }}>
                     <div style={{ display: "flex", marginBottom: "10px" }}>
                         {items.map((el, index) => {
@@ -24,7 +32,7 @@ function ProgressBar() {
                                 <Bars
                                     key={index}
                                     height={heigth}
-                                    width={Math.floor((el.value / sum) * width) / 10}
+                                    width={Math.floor((el.value / totalItems) * width) / 10}
                                     color={el.color}
                                 />
                             );
@@ -38,14 +46,14 @@ function ProgressBar() {
                                     color={el.color}
                                     name={el.name}
                                     value={el.value}
-                                    percent={((el.value / sum) * 100).toFixed(1)}
+                                    percent={((el.value / totalItems) * 100).toFixed(1)}
                                 />
                             );
                         })}
                     </div>
                 </div>
             )}
-        </div>
+        </>
     );
 }
 

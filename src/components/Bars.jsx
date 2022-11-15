@@ -3,7 +3,7 @@ import React from "react";
 function Bars(props) {
     const width = Math.ceil(props.width);
     const count = [];
-    console.log(width);
+
     for (let i = 1; i <= width; i++) {
         count.push(i);
     }

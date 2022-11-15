@@ -3,7 +3,7 @@ import ProgressBar from "./components/ProgressBar";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App" style={{ fontFamily: "Arial" }}>
             <ProgressBar />
         </div>
     );
