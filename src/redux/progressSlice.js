@@ -8,8 +8,8 @@ const initialState = {
         { name: "Free float", color: "#9EA0B5", value: 323 },
     ],
     totalItems: 0,
-    heigth: "20", // in px
-    width: "1320", // in px
+    height: 20, // in px
+    width: 1320, // in px
 };
 
 export const progressSlice = createSlice({
@@ -28,14 +28,30 @@ export const progressSlice = createSlice({
         changeFreeFloat: (state, action) => {
             state.items[3].value = action.payload;
         },
+        setHeight: (state, action) => {
+            state.height = action.payload;
+        },
+        setWidth: (state, action) => {
+            state.width = action.payload;
+        },
         setTotal: (state, action) => {
             state.totalItems = action.payload;
         },
         clearValues: (state) => {
-            state.items.map((el) => (el.value = 0));
+            state.items.map((el) => (el.value = ""));
+            state.height = "";
+            state.width = "";
         },
     },
 });
 
-export const { changeSold, changeGotFree, changeBurned, changeFreeFloat, setTotal, clearValues } =
-    progressSlice.actions;
+export const {
+    changeSold,
+    changeGotFree,
+    changeBurned,
+    changeFreeFloat,
+    setTotal,
+    setHeight,
+    setWidth,
+    clearValues,
+} = progressSlice.actions;

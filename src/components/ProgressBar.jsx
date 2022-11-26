@@ -11,7 +11,7 @@ function ProgressBar() {
     const items = useSelector((state) => state.progress.items);
     const totalItems = useSelector((state) => state.progress.totalItems);
     const width = useSelector((state) => state.progress.width);
-    const heigth = useSelector((state) => state.progress.heigth);
+    const height = useSelector((state) => state.progress.height);
 
     useEffect(() => {
         let sum = Number();
@@ -31,7 +31,7 @@ function ProgressBar() {
                             return (
                                 <Bars
                                     key={index}
-                                    height={heigth}
+                                    height={height}
                                     width={Math.floor((el.value / totalItems) * width) / 10}
                                     color={el.color}
                                 />
