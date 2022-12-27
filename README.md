@@ -1,5 +1,5 @@
 You can open the project by link:
-https://v5jmdv-3000.preview.csb.app/
+https://7u4ty6.csb.app/
 
 Or start the project locally by using command line:
 
